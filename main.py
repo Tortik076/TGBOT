@@ -1,7 +1,7 @@
 import os
 import telebot
 
-TOKEN = os.getenv("TOKEN") or "8372709357:AAGQPrvi8G4204HAEG2detNvu_ReidIP-sg"
+TOKEN = os.getenv("TOKEN") or "API_TOKEN"
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -15,3 +15,4 @@ def echo(message):
 
 print("Бот запущен...")
 bot.infinity_polling()
+
