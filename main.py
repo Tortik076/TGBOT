@@ -13,7 +13,7 @@ from telegram.ext import (
 
 # ================== НАСТРОЙКИ ==================
 
-TOKEN 
+TOKEN = "8517935415:AAHHr3BleE8vAWxM2pcVOOeQU4Tw5EFKEl0"
 
 # Хранилище заявок:
 # user_id -> chat_id
@@ -104,3 +104,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
