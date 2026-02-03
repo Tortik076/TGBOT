@@ -41,21 +41,23 @@ async def handle_join_request(update: Update, context: ContextTypes.DEFAULT_TYPE
     pending_requests[user.id] = chat.id
 
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Я не бот 🤖", callback_data="human_check")]
+        [InlineKeyboardButton("🤷‍♂️ Я человек", callback_data="human_check")]
     ])
+    user_name = user.first_name or "Друг"
 
     await context.bot.send_message(
         chat_id=user.id,
         text=(
-            "Привет! 👋\n\n"
-            "Чтобы вступить в канал, подтверди, что ты не бот.\n"
-            "Нажми кнопку ниже 👇"
+			f"{user_name}, спасибо за подписку на канал магазина ne:BRAND!\n\n"
+            "Я анти-спам бот.\n\n"
+            "Для подтверждения того, что вы живой человек, нажмите кнопку ниже:\n"
+            "«Я человек»"
         ),
         reply_markup=keyboard
     )
 
-    logging.info(f"Заявка от {user.id} в канал {chat.id}")
-
+    logging.info(f"Заявка от {user.id} ({user_name}) в канал {chat.id}")
+    
 # 2️⃣ Пользователь нажал кнопку
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -79,7 +81,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
         await query.edit_message_text(
-            "✅ Спасибо! Заявка одобрена, добро пожаловать в канал!"
+            "✅ Спасибо! Заявка одобрена, добро пожаловать в магазин ne:BRAND!"
         )
 
         logging.info(f"Пользователь {user.id} одобрен в канал {chat_id}")
