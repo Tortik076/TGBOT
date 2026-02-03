@@ -1,3 +1,5 @@
+import os
+
 import logging
 from telegram import (
     Update,
@@ -13,7 +15,7 @@ from telegram.ext import (
 
 # ================== НАСТРОЙКИ ==================
 
-TOKEN = os.getenv("TOKEN") or "API_TOKEN"
+TOKEN = os.environ.get("API_TOKEN")
 
 
 # Хранилище заявок:
@@ -105,6 +107,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
