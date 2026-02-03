@@ -13,7 +13,7 @@ from telegram.ext import (
 
 # ================== НАСТРОЙКИ ==================
 
-TOKEN = API_TOKEN
+TOKEN = os.getenv("TOKEN") or "API_TOKEN"
 
 
 # Хранилище заявок:
@@ -105,6 +105,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
